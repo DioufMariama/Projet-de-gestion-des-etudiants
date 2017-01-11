@@ -21,8 +21,8 @@ public class EtudiantController {
 	
 	@RequestMapping(value="/index")
 	public String Index(Model model, @RequestParam(name="page",defaultValue="0") int page, 
-			@RequestParam(name="motCle",defaultValue="") int motCle) {  
-		Page<Etudiant> etds = etudiantRepository.findAll(new PageRequest(page, 5));
+			@RequestParam(name="motCle",defaultValue="") String motCle) {  
+		Page<Etudiant> etds = etudiantRepository.findByMc("%"+motCle+"%", new PageRequest(page, 5));
 		
 		int NbPage = etds.getTotalPages();
 		int[] pages = new int[NbPage];
