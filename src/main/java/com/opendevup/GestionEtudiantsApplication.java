@@ -22,7 +22,7 @@ public class GestionEtudiantsApplication {
 		DateFormat date = new SimpleDateFormat("yyy-mm-dd");
 		etudiantRepository.save(new Etudiant("James", date.parse("1989-03-14"), "james@gmail.com","james.jpg"));
 		etudiantRepository.save(new Etudiant("Rachid", date.parse("1987-06-10"), "rachid@gmail.com","rachid.jpg"));
-		etudiantRepository.save(new Etudiant("John", date.parse("1985-02-13"), "john@gmail.com","john.jpg"));
+		etudiantRepository.save(new Etudiant("Johne", date.parse("1985-02-13"), "john@gmail.com","john.jpg"));
         
 		Page<Etudiant> etudiants = etudiantRepository.findAll(new PageRequest(1, 5));
 		

@@ -7,6 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Etudiant implements Serializable {
@@ -14,8 +19,13 @@ public class Etudiant implements Serializable {
 	@GeneratedValue
 	private Long id;
 	@Column(name="NOM",length=30)
+	@NotEmpty
+	@Size(min=5,max=30)
 	private String nom;
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	private Date dateNaissance;
+	@NotEmpty
+	@Email
 	private String email;
 	private String photo;
 	public Long getId() {
